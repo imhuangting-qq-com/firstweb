@@ -2,23 +2,30 @@
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
-    <title>我的测试站点</title>
+    <title>今天戴几只</title>
      
   </head>
   <body>
-    <p>这是我的页面</p>
-
+    <p id="data1">戴一只的日期</p>
+    <p id="data2">今天的日期</p>
+    <p id="datas">过去了几天</p>
+    <p id="dijitian">第几天</p>
 
     <script>
-      var start = new Date("2023-03-28")
-      var end =  new Date()
-      var elapsed= Math.floor((end-start)/1000/60/60/24)   
+      var data1 = new Date("2023-03-28")
+      var data2 =  new Date()
+      var datas= Math.floor((data2-data1)/1000/60/60/24)   
+      var dijitian= datas % 5
 
-      var para = document.querySelector('p')
-      
-      
-      para.textContent = start.toDateString() + '    ' + end.toDateString() + '   过了几天：' +elapsed + '     ' + elapsed%5
-            //
+      document.querySelector('#data1').textContent = "戴一只日期：" + data1.toDateString()
+      document.querySelector('#data2').textContent = "今天的日期：" + data2.toDateString()
+      document.querySelector('#datas').textContent = "过去了几天：" + datas
+
+      if (dijitian==0) {
+        document.querySelector('#dijitian').textContent = "今天戴1只"
+      } else {
+        document.querySelector('#dijitian').textContent = "今天戴2只，第" + dijitian + "天"
+      }
     </script>  
   </body>
 </html>
