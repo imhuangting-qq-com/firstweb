@@ -12,13 +12,13 @@
     <p id="dijitian">第几天</p>
 
     <script>
-      var data1 = new Date("2023-03-28")
+      var data1 = new Date("2023-03-28 0:00:00")
       var data2 =  new Date()
       var datas= Math.floor((data2-data1)/1000/60/60/24)   
       var dijitian= datas % 5
 
-      document.querySelector('#data1').textContent = "戴一只日期：" + data1.toDateString()
-      document.querySelector('#data2').textContent = "今天的日期：" + data2.toDateString()
+      document.querySelector('#data1').textContent = "戴一只日期：" + data1.toString()
+      document.querySelector('#data2').textContent = "今天的日期：" + data2.toString()
       document.querySelector('#datas').textContent = "过去了几天：" + datas
 
       if (dijitian==0) {
